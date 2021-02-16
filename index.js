@@ -1,21 +1,21 @@
 import { TweenMax } from "gsap";
 
-TweenMax.set("#box", { xPercent: -50, yPercent: -50 });
+const divs = Array.from({ length: 100 }, () => document.createElement("div"));
 
-document.addEventListener("click", (event) => {
-  const { clientX: x, clientY: y } = event;
-  console.log(x, ":", y);
-  TweenMax.to("#box", 1, {
-    x,
-    y,
+divs.forEach((div) => {
+  TweenMax.set(div, {
+    position: "absolute",
+    x: `${Math.random() * window.innerWidth}px`,
+    y: `${Math.random() * window.innerHeight}px`,
+    width: 20,
+    height: 20,
+    backgroundColor: "green",
+    border: "3px solid black",
   });
+  document.body.appendChild(div);
 });
 
-// document.addEventListener("click", (event) => {
-//   const { x, y } = event;
-//   console.log(x, ":", y);
-//   TweenMax.from("#box", 1, {
-//     x,
-//     y,
-//   });
-// });
+document.addEventListener("click", (event) => {
+  const { x, y } = event;
+  TweenMax.to(divs, 1, { x, y });
+});
