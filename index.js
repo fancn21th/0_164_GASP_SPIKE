@@ -1,17 +1,7 @@
 import { TweenMax } from "gsap";
 
-TweenMax.set(document.body, {
-  perspective: 300,
+TweenMax.to(".box", 1, {
+  scale: 1.25,
+  repeat: -1,
+  yoyo: true,
 });
-
-Array.from({
-  length: 30,
-})
-  .map(() => document.createElement("div"))
-  .forEach((box) => {
-    box.setAttribute("class", "box");
-    document.body.appendChild(box);
-    box.addEventListener("click", () => {
-      TweenMax.to(box, 1, { rotationY: "+=180" });
-    });
-  });
