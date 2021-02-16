@@ -4,8 +4,23 @@
   box-sizing: border-box;
 }
 
-#box {
-  width: 25px;
-  height: 25px;
-  background-color: deepskyblue;
+body {
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+.hover {
+  box-shadow: 0 1rem 1rem;
+}
+
+.down {
+  background-color: blue;
 }

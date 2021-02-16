@@ -1,21 +1,13 @@
 import { TweenMax } from "gsap";
 
-TweenMax.set("#box", { xPercent: -50, yPercent: -50 });
+const box = document.createElement("div");
+box.setAttribute("class", "box");
+document.body.appendChild(box);
 
-document.addEventListener("click", (event) => {
-  const { clientX: x, clientY: y } = event;
-  console.log(x, ":", y);
-  TweenMax.to("#box", 1, {
-    x,
-    y,
-  });
+TweenMax.set(box, {
+  transformPerspective: 200,
 });
 
-// document.addEventListener("click", (event) => {
-//   const { x, y } = event;
-//   console.log(x, ":", y);
-//   TweenMax.from("#box", 1, {
-//     x,
-//     y,
-//   });
-// });
+box.addEventListener("click", () => {
+  TweenMax.to(box, 1, { rotationY: "+=180" });
+});
